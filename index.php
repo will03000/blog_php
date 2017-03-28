@@ -1,9 +1,8 @@
 <?php
 
 $pdo = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
-$req = $pdo->query('SELECT id ,Titre,Contenu, date_format(DateCreation,  \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets ORDER BY DateCreation DESC LIMIT 0, 5');
 $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+$req = $pdo->query('SELECT id ,Titre,Contenu, date_format(DateCreation,  \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets ORDER BY DateCreation DESC LIMIT 0, 5');
 
 ?>
 <!DOCTYPE html>
@@ -37,6 +36,3 @@ $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
     </p>
 </div>
 <?php endwhile ?>
-</body>
-</html>
-
